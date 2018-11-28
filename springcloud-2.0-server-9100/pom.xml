@@ -4,13 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.wudi</groupId>
-	<artifactId>springcloud-server</artifactId>
+	<artifactId>springcloud-server-9100</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>springcloud-2.0-server</name>
+	<name>springcloud-2.0-server-9100</name>
 	<description>Demo project for Spring Boot</description>
-
 	<!--父工程依赖-->
 	<parent>
 		<groupId>com.wudi</groupId>
@@ -19,15 +18,16 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+
 	<dependencies>
-        <!--SpringCloud eureka-server -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
+		<!--SpringCloud eureka-server -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
 	</dependencies>
 
-    <build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

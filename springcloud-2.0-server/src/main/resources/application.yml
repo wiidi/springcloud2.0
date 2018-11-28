@@ -1,15 +1,24 @@
-###����˿ں�
+###服务端口号
 server:
   port: 8100
-###eureka ������Ϣ����
+###服务名称(服务注册到eureka名称)  高可用必须配置且和其他服务器一致
+spring:
+  application:
+    name: springcloud-server
+###eureka 基本信息配置
 eureka:
   instance:
-    ###ע�ᵽeurekaip��ַ
+    ###注册到eurekaip地址
     hostname: 127.0.0.1
   client:
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-###��Ϊ�Լ���Ϊע�����ģ�����Ҫ�Լ�ע���Լ�
+      defaultZone: http://${eureka.instance.hostname}:8100/eureka/
+###因为自己是为注册中心，不需要自己注册自己   高可用需要打开
     register-with-eureka: false
-###��Ϊ�Լ���Ϊע�����ģ�����Ҫ��������
+###因为自己是为注册中心，不需要检索服务   高可用需要打开
     fetch-registry: false
+  server:
+      # 测试时关闭自我保护机制，保证不可用服务及时踢出
+    enable-self-preservation: false
+      ##剔除失效服务间隔
+    eviction-interval-timer-in-ms: 2000
