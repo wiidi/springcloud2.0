@@ -14,6 +14,9 @@
         <module>springcloud-2.0-server</module>
         <module>springcloud-2.0-member</module>
         <module>springcloud-2.0-order</module>
+        <module>springcloud-2.0-server-9100</module>
+        <module>springcloud-2.0-member-8090</module>
+        <module>springserver-consul-8502</module>
     </modules>
 
     <parent>
@@ -54,6 +57,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--feign客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
