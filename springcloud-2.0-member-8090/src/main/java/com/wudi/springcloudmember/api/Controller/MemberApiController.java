@@ -1,11 +1,8 @@
 package com.wudi.springcloudmember.api.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @Description:
@@ -19,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
  * All rights reserved.
  **/
 @RestController
-
 public class MemberApiController {
     @Value("${server.port}")
     private String serverPort;
