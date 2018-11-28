@@ -43,7 +43,7 @@ public class ExtRibbonController {
         return result;
     }
 
-    private String getInstances() {
+    private  String getInstances() {
         //获取在注册中心 名称为springcloud-member的服务列表，所以在客户端集群向注册中心注册时名称需要一样
         List<ServiceInstance> serviceInstanceList = discoveryClient.getInstances("springcloud-member");
         if (serviceInstanceList.size() <= 0 || serviceInstanceList == null) {
@@ -53,8 +53,12 @@ public class ExtRibbonController {
         int instanceSize = serviceInstanceList.size();
         //取模
         int index = reqSize % instanceSize;
-        //请求数加1，该处应该用原子操作
-        reqSize++;
+        //请求数加1，该处应该用原子操作,使用原子计数器最佳
+
+        synchronized (this) {
+            reqSize++;
+        }
+
         return serviceInstanceList.get(index).getUri().toString();
     }
 //    //    注入容器
